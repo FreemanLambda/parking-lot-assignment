@@ -1,0 +1,21 @@
+{
+  "name": "parking-lot",
+  "version": "0.0.1",
+  "description": "Just another parking lot.",
+  "main": "index.html",
+  "scripts": {
+    "postinstall": "bower install && node ./build"
+  },
+  "author": "Mario Banushi <mariobanushi@hotmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.6.0",
+    "moment": "^2.10.6"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.1",
+    "grunt-wiredep": "^2.0.0",
+    "load-grunt-tasks": "^3.3.0"
+  }
+}
