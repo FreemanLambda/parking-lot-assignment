@@ -8,12 +8,16 @@
 
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
     <!-- endbower -->
+    <link rel="stylesheet" href="assets/css/bootstrap-timepicker.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    
+
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.js"></script>
     <!-- endbower -->
 
     <!--[if lt IE 9]>
@@ -22,7 +26,102 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <script src="bundle.js"></script>
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Parking Lot</a>
+        </div>
+        <div class="collapse navbar-collapse" id="menu-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#" data-toggle="modal" data-target="#get-data-modal">Get Data</a></li>
+            <li><a href="#" id="all-time">All Time</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#select-lot-modal">Select Lot</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9">
+          <canvas id="timeline-chart"></canvas>
+        </div>
+        <div class="col-sm-3">
+          <p>Narrow analysis between a start and stop time:</p>
+          <div class="input-group bootstrap-timepicker">
+            <input id="start-time" class="form-control" type="text"/>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+          </div>
+          <div class="input-group bootstrap-timepicker">
+            <input id="end-time" class="form-control" type="text"/>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+          </div>
+          <button id="narrow-timeline" class="btn btn-large btn-primary">Apply start-stop</button>
+          <div id="results"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Get Data Modal -->
+    <div id="get-data-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Select number of days and number of records to load</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-5" for="nr-days">Number of days to load</label>
+                <input class="col-sm-2" id="nr-days" class="form-control" type="number" value="7" min="1"/>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5" for="nr-records">Number of records to load</label>
+                <input class="col-sm-2" id="nr-records" class="form-control" type="number" value="500" min="1"/>
+              </div>
+            </form>
+            <div class="api-info"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id="get-data" type="button" class="btn btn-primary">Get data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Select Lot Modal -->
+    <div id="select-lot-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Select parking lot</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-5" for="parking-lot-url">Lot API endpoint URL</label>
+                <input class="col-sm-7" id="parking-lot-url" class="form-control" type="url"/>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id="select-lot" type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/bundle.js"></script>
   </body>
 </html>

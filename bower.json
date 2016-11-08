@@ -2,7 +2,10 @@
   "name": "classroom-client",
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "bootstrap-timepicker": "^0.5.2",
+    "chart.js": "^2.3.0",
+    "font-awesome": "fontawesome#^4.7.0"
   },
   "overrides": {
     "bootstrap": {
@@ -10,6 +13,11 @@
         "less/bootstrap.less",
         "dist/css/bootstrap.css",
         "dist/js/bootstrap.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.min.css"
       ]
     }
   }
