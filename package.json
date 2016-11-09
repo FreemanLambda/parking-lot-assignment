@@ -9,8 +9,7 @@
   "author": "Mario Banushi <mariobanushi@hotmail.com>",
   "license": "ISC",
   "dependencies": {
-    "bower": "^1.6.0",
-    "moment": "^2.10.6"
+    "bower": "^1.6.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
