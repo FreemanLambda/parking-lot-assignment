@@ -1,4 +1,26 @@
+.main-wrapper {
+  padding-bottom: 20px;
+}
+
 #timeline-chart {
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #666;
+}
+
+#narrow-timeline {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#results {
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 700;
+  background: #666;
+  color: #fff;
+}
+
+.bootstrap-timepicker {
+  margin-bottom: 10px;
 }

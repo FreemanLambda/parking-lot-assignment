@@ -48,23 +48,35 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container main-wrapper">
       <div class="row">
-        <div class="col-sm-9">
-          <canvas id="timeline-chart"></canvas>
-        </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 col-sm-push-9">
           <p>Narrow analysis between a start and stop time:</p>
-          <div class="input-group bootstrap-timepicker">
-            <input id="start-time" class="form-control" type="text"/>
-            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-          </div>
-          <div class="input-group bootstrap-timepicker">
-            <input id="end-time" class="form-control" type="text"/>
-            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-          </div>
-          <button id="narrow-timeline" class="btn btn-large btn-primary">Apply start-stop</button>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <div class="col-sm-12">
+                <label for="start-time">From minute:</label>
+                <div class="input-group bootstrap-timepicker">
+                  <input id="start-time" class="form-control" type="text"/>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <label for="end-time">To minute:</label>
+                <div class="input-group bootstrap-timepicker">
+                  <input id="end-time" class="form-control" type="text"/>
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <button id="narrow-timeline" class="btn btn-large btn-primary">Apply filter</button>
+              </div>
+            </div>
+          </form>
           <div id="results"></div>
+        </div>
+        <div class="col-sm-9 col-sm-pull-3">
+          <canvas id="timeline-chart"></canvas>
         </div>
       </div>
     </div>
@@ -80,12 +92,16 @@
           <div class="modal-body">
             <form class="form-horizontal">
               <div class="form-group">
-                <label class="col-sm-5" for="nr-days">Number of days to load</label>
-                <input class="col-sm-2" id="nr-days" class="form-control" type="number" value="7" min="1"/>
+                <label class="col-sm-5 col-xs-7" for="nr-days">Number of days to load</label>
+                <div class="col-xs-3">
+                  <input id="nr-days" class="form-control" type="number" value="7" min="1"/>
+                </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-5" for="nr-records">Number of records to load</label>
-                <input class="col-sm-2" id="nr-records" class="form-control" type="number" value="500" min="1"/>
+                <label class="col-sm-5 col-xs-7" for="nr-records">Number of records to load</label>
+                <div class="col-xs-3">
+                  <input id="nr-records" class="form-control" type="number" value="500" min="1"/>
+                </div>
               </div>
             </form>
             <div class="api-info"></div>
@@ -109,8 +125,10 @@
           <div class="modal-body">
             <form class="form-horizontal">
               <div class="form-group">
-                <label class="col-sm-5" for="parking-lot-url">Lot API endpoint URL</label>
-                <input class="col-sm-7" id="parking-lot-url" class="form-control" type="url"/>
+                <label class="col-xs-12" for="parking-lot-url">Lot API url</label>
+                <div class="col-xs-12">
+                  <input id="parking-lot-url" class="form-control" type="url"/>
+                </div>
               </div>
             </form>
           </div>
