@@ -15,24 +15,11 @@ module.exports = function(grunt) {
       }
     },
 
-    browserify: {
-      vendor: {
-
-      },
-      client: {
-        src: [
-          'main.js'
-        ],
-        dest: 'assets/js/bundle.js'
-      },
-    },
-
   });
 
   // Load tasks.
   grunt.loadNpmTasks('grunt-wiredep');
-  grunt.loadNpmTasks('grunt-browserify');
 
   // Default task(s).
-  grunt.registerTask('default', ['wiredep', 'browserify']);
+  grunt.registerTask('default', ['wiredep']);
 };
